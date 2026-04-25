@@ -373,6 +373,52 @@ footer{background:var(--c5);padding:64px 64px 32px}
   </div>
 </section>
 
+<!-- AURORA -->
+<section id="aurora-chat" style="padding:80px 64px;max-width:1200px;margin:0 auto;">
+  <div style="max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:28px;">
+
+    <div>
+      <p style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(24px,3vw,36px);font-weight:400;color:#5a5550;line-height:1.2;letter-spacing:-0.02em;margin:0;">
+        Tem uma dúvida agora?
+      </p>
+    </div>
+
+    <div id="aurora-box" style="background:#fff;border:0.5px solid #ceccca;border-radius:14px;overflow:hidden;">
+
+      <div id="aurora-msgs" style="padding:20px 20px 0;display:flex;flex-direction:column;gap:10px;min-height:0;max-height:320px;overflow-y:auto;transition:min-height 0.3s;"></div>
+
+      <div style="padding:16px 20px;display:flex;align-items:center;gap:10px;">
+        <div style="flex:1;display:flex;align-items:center;background:#faf9f7;border:0.5px solid #ceccca;border-radius:24px;padding:0 16px;transition:border-color 0.15s;" id="aurora-input-wrap">
+          <input
+            id="aurora-input"
+            placeholder="Escreva sua dúvida…"
+            style="flex:1;background:none;border:none;padding:10px 0;font-size:14px;color:#5a5550;font-family:'Outfit',sans-serif;outline:none;font-weight:300;"
+            oninput="auraSendBtn(this)"
+            onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();auraEnviar()}"
+          />
+        </div>
+        <button
+          id="aurora-btn"
+          onclick="auraEnviar()"
+          style="width:36px;height:36px;border-radius:50%;background:#827768;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.2s,background 0.15s;flex-shrink:0;"
+          onmouseover="this.style.background='#6e6458'"
+          onmouseout="this.style.background='#827768'"
+        >
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <p style="font-size:12px;color:#b2aeaa;font-weight:300;line-height:1.7;margin:0;">
+      Respondemos na hora — qualquer dia, qualquer hora. Se preferir, pelo WhatsApp também funciona.
+    </p>
+
+  </div>
+</section>
+
 <!-- CLÍNICA -->
 <section id="clinica">
   <div class="section">
@@ -695,6 +741,87 @@ async function carregarFotos() {
 }
 
 carregarFotos();
+
+// ── Aurora chat no site ──
+const auraHistory = []
+
+function auraSendBtn(input) {
+  const btn = document.getElementById('aurora-btn')
+  if (input.value.trim()) {
+    btn.style.opacity = '1'
+    btn.style.pointerEvents = 'all'
+  } else {
+    btn.style.opacity = '0'
+    btn.style.pointerEvents = 'none'
+  }
+}
+
+function auraMsgEl(role, text) {
+  const msgs = document.getElementById('aurora-msgs')
+  const div = document.createElement('div')
+  div.style.cssText = `display:flex;flex-direction:column;max-width:78%;align-self:${role === 'user' ? 'flex-end' : 'flex-start'};margin-bottom:4px;`
+  const bubble = document.createElement('div')
+  bubble.style.cssText = role === 'user'
+    ? 'padding:10px 14px;border-radius:12px;border-bottom-right-radius:4px;background:#827768;color:#fff;font-size:13.5px;line-height:1.65;font-family:Outfit,sans-serif;font-weight:400;'
+    : 'padding:10px 14px;border-radius:12px;border-bottom-left-radius:4px;background:#faf9f7;border:0.5px solid #edebe7;color:#5a5550;font-size:13.5px;line-height:1.65;font-family:Outfit,sans-serif;font-weight:300;'
+  bubble.textContent = text
+  div.appendChild(bubble)
+  msgs.appendChild(div)
+  msgs.scrollTop = msgs.scrollHeight
+  // Expande o box quando tem mensagens
+  msgs.style.minHeight = '80px'
+  msgs.style.paddingBottom = '12px'
+  return div
+}
+
+function auraTyping() {
+  const msgs = document.getElementById('aurora-msgs')
+  const div = document.createElement('div')
+  div.id = 'aurora-typing'
+  div.style.cssText = 'display:flex;align-self:flex-start;margin-bottom:4px;'
+  div.innerHTML = `<div style="padding:10px 14px;border-radius:12px;border-bottom-left-radius:4px;background:#faf9f7;border:0.5px solid #edebe7;display:flex;gap:4px;align-items:center;">
+    <span style="width:5px;height:5px;border-radius:50%;background:#b2aeaa;animation:auraPulse 1.4s ease-in-out infinite;"></span>
+    <span style="width:5px;height:5px;border-radius:50%;background:#b2aeaa;animation:auraPulse 1.4s ease-in-out 0.16s infinite;"></span>
+    <span style="width:5px;height:5px;border-radius:50%;background:#b2aeaa;animation:auraPulse 1.4s ease-in-out 0.32s infinite;"></span>
+  </div>`
+  msgs.appendChild(div)
+  msgs.scrollTop = msgs.scrollHeight
+}
+
+function auraRemoveTyping() {
+  const t = document.getElementById('aurora-typing')
+  if (t) t.remove()
+}
+
+async function auraEnviar() {
+  const input = document.getElementById('aurora-input')
+  const btn = document.getElementById('aurora-btn')
+  const texto = input.value.trim()
+  if (!texto) return
+  input.value = ''
+  btn.style.opacity = '0'
+  btn.style.pointerEvents = 'none'
+
+  auraHistory.push({ role: 'user', content: texto })
+  auraMsgEl('user', texto)
+  auraTyping()
+
+  try {
+    const res = await fetch('https://aura.anacolacique.com.br/api/site/aurora', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: auraHistory }),
+    })
+    const d = await res.json()
+    auraRemoveTyping()
+    const reply = d.reply ?? 'Desculpe, tive um problema. Tente pelo WhatsApp: (11) 98888-8230.'
+    auraHistory.push({ role: 'assistant', content: reply })
+    auraMsgEl('aurora', reply)
+  } catch {
+    auraRemoveTyping()
+    auraMsgEl('aurora', 'Tive um problema aqui. Pode me chamar pelo WhatsApp: (11) 98888-8230.')
+  }
+}
 </script>
 
 </body>

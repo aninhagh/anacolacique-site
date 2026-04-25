@@ -245,7 +245,7 @@ footer{background:var(--c5);padding:64px 64px 32px}
     <li><a href="#politicas">Políticas</a></li>
   </ul>
   <div class="nav-right">
-    <a href="/portal" class="nav-patient" title="Área da paciente">
+    <a href="https://aura.anacolacique.com.br/portal/login" class="nav-patient" title="Área da paciente">
       <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
     </a>
     <a href="https://wa.me/5511988888230" class="btn-nav" target="_blank">Agendar</a>
@@ -494,8 +494,7 @@ footer{background:var(--c5);padding:64px 64px 32px}
         <h2 class="portal-h">Suas consultas e documentos,<br><em>sempre com você.</em></h2>
         <p class="portal-p">Acesse seu histórico de consultas, receitas digitais e pedidos de exame. Agende diretamente pela plataforma. Tudo em um lugar só.</p>
         <div class="portal-ctas">
-          <a href="/portal" class="btn-portal-p">Entrar na área da paciente</a>
-          <a href="/portal/cadastro" class="btn-portal-s">Criar conta</a>
+          <a href="https://aura.anacolacique.com.br/portal/login" class="btn-portal-p">Entrar na área da paciente</a>
         </div>
       </div>
       <div class="portal-right">
@@ -683,7 +682,7 @@ footer{background:var(--c5);padding:64px 64px 32px}
         <ul class="footer-links">
           <li><a href="https://wa.me/5511988888230" target="_blank">WhatsApp</a></li>
           <li><a href="https://www.instagram.com/anacolacique/" target="_blank">@anacolacique</a></li>
-          <li><a href="/portal">Área da Paciente</a></li>
+          <li><a href="https://aura.anacolacique.com.br/portal/login">Área da Paciente</a></li>
         </ul>
       </div>
       <div>
@@ -808,8 +807,7 @@ async function auraEnviar() {
   const texto = input.value.trim()
   if (!texto) return
   input.value = ''
-  btn.style.opacity = '0'
-  btn.style.pointerEvents = 'none'
+  auraSendBtn(input)
 
   auraHistory.push({ role: 'user', content: texto })
   auraMsgEl('user', texto)

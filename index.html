@@ -280,32 +280,37 @@ footer{background:var(--c5);padding:64px 64px 32px}
 <section id="aurora-chat" style="padding:48px 64px;">
   <div style="max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:20px;">
 
+    <div style="display:flex;align-items:center;gap:8px;">
+      <div style="width:7px;height:7px;border-radius:50%;background:#5a9e7c;flex-shrink:0;"></div>
+      <p style="font-size:12px;font-weight:500;color:#5a9e7c;margin:0;letter-spacing:0.02em;">Disponível agora</p>
+    </div>
+
     <p style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(22px,2.5vw,30px);font-weight:400;color:#5a5550;line-height:1.2;letter-spacing:-0.02em;margin:0;">
-      Tem uma dúvida agora?
+      Disponível agora para conversar.
     </p>
 
     <div style="background:#fff;border:0.5px solid #ceccca;border-radius:12px;overflow:hidden;">
 
-      <div id="aurora-msgs" style="display:flex;flex-direction:column;gap:10px;padding:0 20px;max-height:280px;overflow-y:auto;"></div>
+      <div id="aurora-msgs" style="display:flex;flex-direction:column;gap:14px;padding:0 24px;max-height:320px;overflow-y:auto;"></div>
 
-      <div style="padding:14px 20px;display:flex;align-items:center;gap:10px;border-top:0 solid transparent;" id="aurora-input-area">
-        <input
+      <div style="padding:20px 24px;display:flex;align-items:flex-end;gap:12px;">
+        <textarea
           id="aurora-input"
           placeholder="Escreva aqui…"
-          style="flex:1;background:#faf9f7;border:0.5px solid #e2deda;border-radius:24px;padding:10px 18px;font-size:14px;color:#5a5550;font-family:'Outfit',sans-serif;font-weight:300;outline:none;"
+          rows="3"
+          style="flex:1;background:#faf9f7;border:0.5px solid #e2deda;border-radius:12px;padding:14px 16px;font-size:14px;color:#5a5550;font-family:'Outfit',sans-serif;font-weight:300;outline:none;resize:none;line-height:1.6;transition:border-color 0.15s;"
           oninput="auraSendBtn(this)"
           onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();auraEnviar()}"
           onfocus="this.style.borderColor='#827768'"
           onblur="this.style.borderColor='#e2deda'"
-        />
+        ></textarea>
         <button
           id="aurora-btn"
           onclick="auraEnviar()"
-          style="width:38px;height:38px;border-radius:50%;background:#827768;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.2s,background 0.15s;flex-shrink:0;"
-          onmouseover="this.style.background='#6e6458'"
-          onmouseout="this.style.background='#827768'"
+          style="width:42px;height:42px;border-radius:50%;background:#e2deda;border:none;cursor:default;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.2s;margin-bottom:2px;"
+          disabled
         >
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#b2aeaa" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" id="aurora-btn-icon">
             <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
           </svg>
         </button>
@@ -746,31 +751,36 @@ const auraHistory = []
 
 function auraSendBtn(input) {
   const btn = document.getElementById('aurora-btn')
+  const icon = document.getElementById('aurora-btn-icon')
   if (input.value.trim()) {
-    btn.style.opacity = '1'
-    btn.style.pointerEvents = 'all'
+    btn.style.background = '#827768'
+    btn.style.cursor = 'pointer'
+    btn.disabled = false
+    icon.setAttribute('stroke', '#fff')
   } else {
-    btn.style.opacity = '0'
-    btn.style.pointerEvents = 'none'
+    btn.style.background = '#e2deda'
+    btn.style.cursor = 'default'
+    btn.disabled = true
+    icon.setAttribute('stroke', '#b2aeaa')
   }
 }
 
 function auraMsgEl(role, text) {
   const msgs = document.getElementById('aurora-msgs')
+  if (msgs.style.padding === '0px 24px' || msgs.style.padding === '0 24px') {
+    msgs.style.paddingTop = '20px'
+    msgs.style.paddingBottom = '4px'
+  }
   const div = document.createElement('div')
-  div.style.cssText = `display:flex;flex-direction:column;max-width:78%;align-self:${role === 'user' ? 'flex-end' : 'flex-start'};margin-bottom:4px;`
+  div.style.cssText = `display:flex;flex-direction:column;max-width:82%;align-self:${role === 'user' ? 'flex-end' : 'flex-start'};`
   const bubble = document.createElement('div')
   bubble.style.cssText = role === 'user'
-    ? 'padding:10px 14px;border-radius:12px;border-bottom-right-radius:4px;background:#827768;color:#fff;font-size:13.5px;line-height:1.65;font-family:Outfit,sans-serif;font-weight:400;'
-    : 'padding:10px 14px;border-radius:12px;border-bottom-left-radius:4px;background:#faf9f7;border:0.5px solid #edebe7;color:#5a5550;font-size:13.5px;line-height:1.65;font-family:Outfit,sans-serif;font-weight:300;'
+    ? 'font-size:14px;line-height:1.7;color:#827768;font-family:Outfit,sans-serif;font-weight:400;text-align:right;padding:4px 0;'
+    : 'font-size:14px;line-height:1.7;color:#5a5550;font-family:Outfit,sans-serif;font-weight:300;padding:4px 0;'
   bubble.textContent = text
   div.appendChild(bubble)
   msgs.appendChild(div)
   msgs.scrollTop = msgs.scrollHeight
-  // Expande o box quando tem mensagens
-  msgs.style.minHeight = '80px'
-  msgs.style.paddingBottom = '12px'
-  return div
 }
 
 function auraTyping() {

@@ -652,12 +652,13 @@ footer{background:var(--c5);padding:64px 64px 32px}
 </footer>
 
 <script>
+// ── Toggle políticas ──
 function togglePol(header) {
   const card = header.parentElement;
   card.classList.toggle('open');
 }
 
-// Smooth active state no nav de políticas
+// ── Scroll spy políticas ──
 const polLinks = document.querySelectorAll('.pol-nav-item a');
 const polSections = document.querySelectorAll('.pol-card');
 window.addEventListener('scroll', () => {
@@ -670,6 +671,30 @@ window.addEventListener('scroll', () => {
     if (l.getAttribute('href') === '#' + current) l.classList.add('active');
   });
 });
+
+// ── Fotos dinâmicas do Supabase ──
+const SUPABASE_URL = 'https://xfzemijfwwolatoxswlw.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhmemVtaWpmd3dvbGF0b3hzd2x3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU0MDI0NzcsImV4cCI6MjA5MDk3ODQ3N30.JdjS8kJnSdlJ4dVZAEQWyX5x7jvH1M7JQLzbeHFxLfQ';
+
+async function carregarFotos() {
+  try {
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/site_fotos?select=slot_id,foto_url&foto_url=not.is.null`,
+      { headers: { 'apikey': SUPABASE_ANON, 'Authorization': `Bearer ${SUPABASE_ANON}` } }
+    );
+    if (!res.ok) return;
+    const fotos = await res.json();
+    fotos.forEach(f => {
+      const el = document.getElementById(f.slot_id);
+      if (!el || !f.foto_url) return;
+      el.innerHTML = `<img src="${f.foto_url}" alt="${f.slot_id}" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">`;
+    });
+  } catch (e) {
+    console.log('Fotos não carregadas:', e);
+  }
+}
+
+carregarFotos();
 </script>
 
 </body>

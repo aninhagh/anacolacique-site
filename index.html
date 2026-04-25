@@ -1,1 +1,676 @@
-<html><body><h1>em breve</h1></body></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dra. Ana Colacique | Ginecologia e Obstetrícia</title>
+<meta name="description" content="Dra. Ana Colacique — Ginecologista e Obstetra em Aldeia da Serra, Barueri. Atendimento humanizado em todas as fases da saúde feminina.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,300;0,6..96,400;1,6..96,300;1,6..96,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --c0:#5a5550;
+  --c1:#edebe7;
+  --c2:#ceccca;
+  --c3:#b2aeaa;
+  --c4:#989187;
+  --c5:#827768;
+  --bg:#faf9f7;
+  --bg2:#f4f2ef;
+  --white:#ffffff;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--c0);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;background:rgba(250,249,247,0.94);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--c1);padding:0 64px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-left{display:flex;align-items:center;gap:14px;text-decoration:none}
+.nav-dots{display:grid;grid-template-columns:repeat(3,6px);gap:4px}
+.nd{width:6px;height:6px;border-radius:50%}
+.nav-name{font-family:'Bodoni Moda',Georgia,serif;font-size:16px;font-weight:400;color:var(--c0);font-optical-sizing:auto;text-decoration:none}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:11px;font-weight:500;color:var(--c4);letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--c0)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.btn-nav{font-family:'Outfit',sans-serif;font-size:12px;font-weight:500;color:#fff;background:var(--c5);border:none;border-radius:7px;padding:8px 18px;cursor:pointer;letter-spacing:0.02em;text-decoration:none;transition:background 0.2s}
+.btn-nav:hover{background:#6e6458}
+.nav-patient{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;border:0.5px solid var(--c2);background:#fff;cursor:pointer;text-decoration:none;transition:border-color 0.2s}
+.nav-patient:hover{border-color:var(--c5)}
+.nav-patient svg{width:16px;height:16px;stroke:var(--c4);fill:none;stroke-width:1.5}
+
+/* ── HERO ── */
+.hero{min-height:92vh;display:flex;align-items:center;padding:0 64px;gap:64px;max-width:1200px;margin:0 auto}
+.hero-left{flex:1}
+.hero-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--c5);border:0.5px solid var(--c2);border-radius:20px;padding:5px 14px;margin-bottom:28px}
+.hero-h{font-family:'Bodoni Moda',Georgia,serif;font-size:clamp(40px,5vw,64px);font-weight:300;font-optical-sizing:auto;color:var(--c0);line-height:1.08;letter-spacing:-0.03em;margin-bottom:22px}
+.hero-h em{font-style:italic;color:var(--c5)}
+.hero-p{font-size:16px;font-weight:300;color:var(--c4);line-height:1.85;max-width:480px;margin-bottom:36px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn-stone{font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;color:#fff;background:var(--c5);border:1.5px solid var(--c5);border-radius:8px;padding:12px 24px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s,border-color 0.2s}
+.btn-stone:hover{background:#6e6458;border-color:#6e6458}
+.btn-outline{font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;color:var(--c5);background:#fff;border:1.5px solid var(--c5);border-radius:8px;padding:12px 24px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s}
+.btn-outline:hover{background:var(--bg2)}
+.hero-right{flex-shrink:0}
+.hero-img{width:380px;height:500px;background:var(--c1);border-radius:16px;border:0.5px solid var(--c2);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.hero-img img{width:100%;height:100%;object-fit:cover}
+.hero-img-placeholder{display:flex;flex-direction:column;align-items:center;gap:8px}
+.hero-img-placeholder span{font-size:10px;color:var(--c3);letter-spacing:0.08em;text-transform:uppercase;font-weight:500;text-align:center}
+.hero-rule{width:40px;height:1px;background:var(--c5);margin-top:40px}
+
+/* ── TICKER ── */
+.ticker-section{background:var(--c0);padding:14px 0;overflow:hidden}
+.ticker-track{display:flex;gap:56px;white-space:nowrap;animation:ticker 22s linear infinite;width:max-content}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-item{font-size:10.5px;font-weight:500;color:rgba(255,255,255,0.45);letter-spacing:0.14em;text-transform:uppercase;white-space:nowrap}
+.ticker-sep{width:3px;height:3px;border-radius:50%;background:var(--c3);flex-shrink:0;align-self:center}
+
+/* ── SECTIONS ── */
+.section{padding:96px 64px;max-width:1200px;margin:0 auto}
+.section-full{padding:96px 64px}
+.sec-tag{display:inline-block;font-size:9.5px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--c5);border:0.5px solid var(--c2);border-radius:20px;padding:4px 13px;margin-bottom:24px}
+.sec-h{font-family:'Bodoni Moda',Georgia,serif;font-size:clamp(28px,3.5vw,44px);font-weight:300;font-optical-sizing:auto;color:var(--c0);line-height:1.12;letter-spacing:-0.025em;margin-bottom:20px}
+.sec-h em{font-style:italic;color:var(--c5)}
+.sec-p{font-size:15px;font-weight:300;color:var(--c4);line-height:1.85;max-width:560px}
+.rule-accent{width:40px;height:1px;background:var(--c5);margin:28px 0}
+
+/* ── SOBRE ── */
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.sobre-img{width:100%;aspect-ratio:3/4;background:var(--c1);border-radius:16px;border:0.5px solid var(--c2);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.sobre-img img{width:100%;height:100%;object-fit:cover}
+.sobre-content{}
+.sobre-body{font-size:15px;font-weight:300;color:var(--c4);line-height:1.9;margin-bottom:16px}
+.formacao{margin-top:32px;padding-top:28px;border-top:0.5px solid var(--c1)}
+.formacao-label{font-size:9.5px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--c3);margin-bottom:14px;display:block}
+.formacao-item{display:flex;flex-direction:column;gap:2px;margin-bottom:14px}
+.formacao-titulo{font-size:13px;font-weight:500;color:var(--c0)}
+.formacao-sub{font-size:12px;color:var(--c3);font-weight:300}
+
+/* ── SERVIÇOS ── */
+.servicos-section{background:var(--bg2)}
+.servicos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:48px}
+.card-svc{background:#fff;border:0.5px solid var(--c1);border-radius:12px;padding:28px 24px;cursor:default;transition:transform 0.22s cubic-bezier(0.34,1.56,0.64,1),border-color 0.2s,box-shadow 0.2s}
+.card-svc:hover{transform:scale(1.04);border-color:var(--c2)}
+.svc-num{font-size:9px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--c3);margin-bottom:14px;display:block}
+.svc-title{font-family:'Bodoni Moda',Georgia,serif;font-size:17px;font-weight:400;font-optical-sizing:auto;color:var(--c0);line-height:1.3;margin-bottom:10px}
+.svc-body{font-size:12px;color:var(--c4);line-height:1.7;font-weight:300}
+
+/* ── DEPOIMENTOS ── */
+.dep-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:48px}
+.card-dep{background:var(--bg2);border:0.5px solid var(--c1);border-radius:12px;padding:28px 26px;cursor:default;transition:transform 0.22s cubic-bezier(0.34,1.56,0.64,1),border-color 0.2s}
+.card-dep:hover{transform:scale(1.03);border-color:var(--c2)}
+.dep-stars{display:flex;gap:3px;margin-bottom:14px}
+.star{width:10px;height:10px;background:var(--c5);clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.dep-quote{font-family:'Bodoni Moda',Georgia,serif;font-size:15px;font-style:italic;font-weight:300;font-optical-sizing:auto;color:var(--c4);line-height:1.7;margin-bottom:16px}
+.dep-author{font-size:10.5px;font-weight:500;color:var(--c5);letter-spacing:0.05em}
+.dep-cta{margin-top:40px}
+
+/* ── CLÍNICA ── */
+.clinica-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-top:48px}
+.clinica-img{width:100%;aspect-ratio:4/3;background:var(--c1);border-radius:12px;border:0.5px solid var(--c2);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.clinica-img img{width:100%;height:100%;object-fit:cover}
+.clinica-info{}
+.clinica-nome{font-family:'Bodoni Moda',Georgia,serif;font-size:22px;font-weight:400;font-optical-sizing:auto;color:var(--c0);margin-bottom:20px}
+.clinica-detalhe{display:flex;flex-direction:column;gap:3px;margin-bottom:20px}
+.clinica-detalhe-label{font-size:9px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--c3)}
+.clinica-detalhe-val{font-size:14px;color:var(--c0);font-weight:400}
+.clinica-detalhe-sub{font-size:12px;color:var(--c4);font-weight:300}
+.clinica-sep{height:0.5px;background:var(--c1);margin:20px 0}
+.clinica-ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.btn-dark{font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;color:#fff;background:var(--c0);border:1.5px solid var(--c0);border-radius:8px;padding:11px 22px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s}
+.btn-dark:hover{background:#4a4540;border-color:#4a4540}
+
+/* ── INSTAGRAM ── */
+.instagram-section{background:var(--bg2)}
+.insta-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:40px}
+.insta-placeholder{aspect-ratio:1;background:var(--c1);border-radius:8px;border:0.5px solid var(--c2);display:flex;align-items:center;justify-content:center}
+.insta-placeholder span{font-size:9px;color:var(--c3);letter-spacing:0.06em;text-transform:uppercase;font-weight:500}
+.insta-cta{margin-top:28px}
+
+/* ── PORTAL ── */
+.portal-section{background:var(--c0)}
+.portal-inner{max-width:1200px;margin:0 auto;padding:96px 64px;display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap}
+.portal-left{}
+.portal-tag{display:inline-block;font-size:9.5px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--c3);border:0.5px solid rgba(255,255,255,0.15);border-radius:20px;padding:4px 13px;margin-bottom:20px}
+.portal-h{font-family:'Bodoni Moda',Georgia,serif;font-size:clamp(26px,3vw,40px);font-weight:300;font-optical-sizing:auto;color:var(--c1);line-height:1.12;letter-spacing:-0.025em;margin-bottom:16px}
+.portal-h em{font-style:italic;color:var(--c2)}
+.portal-p{font-size:15px;font-weight:300;color:var(--c3);line-height:1.85;max-width:480px;margin-bottom:32px}
+.portal-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn-portal-p{font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;color:var(--c0);background:var(--c1);border:1.5px solid var(--c1);border-radius:8px;padding:12px 24px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s,border-color 0.2s}
+.btn-portal-p:hover{background:var(--c2);border-color:var(--c2)}
+.btn-portal-s{font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;color:var(--c3);background:transparent;border:1.5px solid rgba(255,255,255,0.15);border-radius:8px;padding:12px 24px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:border-color 0.2s,color 0.2s}
+.btn-portal-s:hover{border-color:rgba(255,255,255,0.3);color:var(--c1)}
+.portal-right{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.portal-feature{background:rgba(255,255,255,0.04);border:0.5px solid rgba(255,255,255,0.08);border-radius:10px;padding:18px 20px}
+.pf-icon{width:32px;height:32px;background:rgba(255,255,255,0.06);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.pf-icon svg{width:16px;height:16px;stroke:var(--c3);fill:none;stroke-width:1.5}
+.pf-title{font-size:12.5px;font-weight:500;color:var(--c2);margin-bottom:4px}
+.pf-body{font-size:11px;color:var(--c4);font-weight:300;line-height:1.6}
+
+/* ── POLÍTICAS ── */
+.politicas-section{padding:96px 64px;max-width:1200px;margin:0 auto}
+.pol-grid{display:grid;grid-template-columns:280px 1fr;gap:64px;align-items:start;margin-top:48px}
+.pol-nav{position:sticky;top:80px}
+.pol-nav-list{list-style:none;display:flex;flex-direction:column;gap:4px}
+.pol-nav-item a{font-size:12.5px;color:var(--c3);text-decoration:none;padding:6px 0;display:block;border-left:2px solid transparent;padding-left:14px;transition:color 0.2s,border-color 0.2s;font-weight:400}
+.pol-nav-item a:hover,.pol-nav-item a.active{color:var(--c5);border-left-color:var(--c5)}
+.pol-content{display:flex;flex-direction:column;gap:0}
+.pol-card{border:0.5px solid var(--c1);border-radius:10px;overflow:hidden;margin-bottom:10px}
+.pol-header{padding:18px 22px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none;gap:16px;transition:background 0.15s;background:#fff}
+.pol-header:hover{background:var(--bg)}
+.pol-header-left{display:flex;align-items:center;gap:14px}
+.pol-icon{width:34px;height:34px;border-radius:8px;background:var(--bg2);border:0.5px solid var(--c1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pol-icon svg{width:16px;height:16px;stroke:var(--c5);fill:none;stroke-width:1.5}
+.pol-title{font-size:14px;font-weight:500;color:var(--c0)}
+.pol-subtitle{font-size:12px;color:var(--c4);font-weight:300;margin-top:2px}
+.pol-chevron{width:18px;height:18px;color:var(--c3);transition:transform 0.25s;flex-shrink:0}
+.pol-card.open .pol-chevron{transform:rotate(180deg)}
+.pol-body{display:none;padding:0 22px 20px 70px;border-top:0.5px solid var(--c1);background:#fff}
+.pol-card.open .pol-body{display:block}
+.pol-body p{font-size:13.5px;color:var(--c4);line-height:1.75;margin-top:16px;margin-bottom:8px}
+.pol-body ul{list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.pol-body li{font-size:13.5px;color:var(--c4);padding-left:16px;position:relative;line-height:1.6}
+.pol-body li::before{content:'';position:absolute;left:0;top:9px;width:4px;height:4px;border-radius:50%;background:var(--c3)}
+.pol-levels{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.pol-level{border-radius:8px;padding:13px 15px;border:0.5px solid var(--c1);display:flex;gap:12px;align-items:flex-start}
+.lv-dot{width:7px;height:7px;border-radius:50%;margin-top:5px;flex-shrink:0}
+.lv-green .lv-dot{background:#5a9e7c} .lv-amber .lv-dot{background:#c89a2e} .lv-red .lv-dot{background:#c26b5a}
+.lv-label{font-size:10.5px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:3px}
+.lv-green .lv-label{color:#3d7a5c} .lv-amber .lv-label{color:#a07c1a} .lv-red .lv-label{color:#a04535}
+.lv-text{font-size:13px;color:var(--c4);line-height:1.6}
+.pol-note{background:var(--bg2);border:0.5px solid var(--c2);border-radius:8px;padding:13px 16px;font-size:12.5px;color:var(--c5);line-height:1.7;margin-top:14px;display:flex;gap:10px;align-items:flex-start}
+
+/* ── TABLE ── */
+.sch-table{width:100%;border-collapse:collapse;margin-top:14px;font-size:13.5px}
+.sch-table th{text-align:left;font-size:9px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--c3);padding:8px 12px;border-bottom:0.5px solid var(--c1)}
+.sch-table td{padding:10px 12px;color:var(--c4);border-bottom:0.5px solid var(--bg2)}
+.sch-table tr:last-child td{border-bottom:none}
+.sch-table .day{font-weight:500;color:var(--c0)}
+.sch-table .no{color:var(--c3);font-style:italic}
+
+/* ── FOOTER ── */
+footer{background:var(--c5);padding:64px 64px 32px}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:40px;border-bottom:0.5px solid rgba(255,255,255,0.12);margin-bottom:28px}
+.footer-brand{}
+.footer-logo-name{font-family:'Bodoni Moda',Georgia,serif;font-size:20px;font-weight:300;font-optical-sizing:auto;color:rgba(255,255,255,0.95);margin-bottom:6px;display:block}
+.footer-crm{font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:0.05em;margin-bottom:16px;display:block}
+.footer-addr{font-size:12px;color:rgba(255,255,255,0.4);line-height:1.9;font-weight:300}
+.footer-col-title{font-size:9.5px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:14px;display:block}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-links a{font-size:12.5px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:rgba(255,255,255,0.85)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.footer-copy{font-size:10.5px;color:rgba(255,255,255,0.2)}
+.footer-dev{font-size:10.5px;color:rgba(255,255,255,0.2);text-decoration:none}
+.footer-dev:hover{color:rgba(255,255,255,0.5)}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hero{padding:40px 20px;flex-direction:column;min-height:auto;padding-top:60px}
+  .hero-right{width:100%}
+  .hero-img{width:100%;height:320px}
+  .section,.section-full,.politicas-section{padding:64px 20px}
+  .sobre-grid,.clinica-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr;gap:32px}
+  footer{padding:48px 20px 24px}
+  .portal-inner{padding:64px 20px}
+  .portal-right{grid-template-columns:1fr 1fr}
+  .pol-grid{grid-template-columns:1fr}
+  .pol-nav{display:none}
+  .insta-grid{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-left">
+    <div class="nav-dots">
+      <div class="nd" style="background:#827768"></div><div class="nd" style="background:#827768"></div><div class="nd" style="background:#ceccca"></div>
+      <div class="nd" style="background:#827768"></div><div class="nd" style="background:#ceccca"></div><div class="nd" style="background:#edebe7;border:0.5px solid #e2deda"></div>
+      <div class="nd" style="background:#ceccca"></div><div class="nd" style="background:#edebe7;border:0.5px solid #e2deda"></div><div class="nd" style="background:#edebe7;border:0.5px solid #e2deda"></div>
+    </div>
+    <span class="nav-name">Dra. Ana Colacique</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#clinica">Clínica</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
+    <li><a href="#politicas">Políticas</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="/portal" class="nav-patient" title="Área da paciente">
+      <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    </a>
+    <a href="https://wa.me/5511988888230" class="btn-nav" target="_blank">Agendar</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="inicio">
+  <div class="hero">
+    <div class="hero-left">
+      <span class="hero-tag">Ginecologia · Obstetrícia · Aldeia da Serra</span>
+      <h1 class="hero-h">Cuidado que<br><em>acolhe</em> cada<br>fase da sua vida.</h1>
+      <p class="hero-p">A Dra. Ana Colacique atende com presença, rigor clínico e um cuidado genuíno — para que você se sinta segura em cada consulta.</p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/5511988888230" class="btn-stone" target="_blank">Marcar consulta</a>
+        <a href="#sobre" class="btn-outline">Conhecer a Dra. Ana</a>
+      </div>
+      <div class="hero-rule"></div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-img" id="hero-foto">
+        <div class="hero-img-placeholder">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#b2aeaa" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Foto da<br>Dra. Ana</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-section">
+  <div class="ticker-track">
+    <span class="ticker-item">Maternidade Star</span><div class="ticker-sep"></div>
+    <span class="ticker-item">Einstein Hospital Israelita</span><div class="ticker-sep"></div>
+    <span class="ticker-item">Maternidade Pro Matre Paulista</span><div class="ticker-sep"></div>
+    <span class="ticker-item">Maternidade Santa Joana</span><div class="ticker-sep"></div>
+    <span class="ticker-item">Maternidade Star</span><div class="ticker-sep"></div>
+    <span class="ticker-item">Einstein Hospital Israelita</span><div class="ticker-sep"></div>
+    <span class="ticker-item">Maternidade Pro Matre Paulista</span><div class="ticker-sep"></div>
+    <span class="ticker-item">Maternidade Santa Joana</span><div class="ticker-sep"></div>
+  </div>
+</div>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="section">
+    <div class="sobre-grid">
+      <div class="sobre-img" id="sobre-foto">
+        <div class="hero-img-placeholder">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#b2aeaa" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Foto da<br>Dra. Ana</span>
+        </div>
+      </div>
+      <div class="sobre-content">
+        <span class="sec-tag">Sobre</span>
+        <h2 class="sec-h">Mais do que uma médica —<br><em>uma parceira</em> na sua saúde.</h2>
+        <div class="rule-accent"></div>
+        <p class="sobre-body">Formada pela Faculdade de Medicina do ABC em 2008 e especialista em Ginecologia e Obstetrícia desde 2012, a Dra. Ana Colacique construiu sua carreira em torno de um princípio simples: cada mulher é única e merece ser ouvida.</p>
+        <p class="sobre-body">Com pós-graduação em Reprodução Humana pelo Instituto Ideia Fértil, atende desde a adolescência até o climatério — passando por gestações, planejamento familiar e todos os ciclos da saúde feminina.</p>
+        <p class="sobre-body">Sua abordagem une o rigor da medicina baseada em evidências com uma escuta genuína. Não há pressa. Não há consulta padronizada. Há uma conversa.</p>
+        <div class="formacao">
+          <span class="formacao-label">Formação</span>
+          <div class="formacao-item">
+            <span class="formacao-titulo">Graduação em Medicina</span>
+            <span class="formacao-sub">Faculdade de Medicina do ABC · 2003–2008</span>
+          </div>
+          <div class="formacao-item">
+            <span class="formacao-titulo">Residência em Ginecologia e Obstetrícia</span>
+            <span class="formacao-sub">Faculdade de Medicina do ABC · 2009–2012</span>
+          </div>
+          <div class="formacao-item">
+            <span class="formacao-titulo">Pós-graduação em Reprodução Humana</span>
+            <span class="formacao-sub">Instituto Ideia Fértil (FMABC) · 2012–2013</span>
+          </div>
+        </div>
+        <a href="https://wa.me/5511988888230" class="btn-stone" style="margin-top:32px;display:inline-flex" target="_blank">Agendar consulta</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="section-full servicos-section">
+    <div style="max-width:1200px;margin:0 auto">
+      <span class="sec-tag">Serviços</span>
+      <h2 class="sec-h">O cuidado certo para<br><em>cada momento</em> da sua vida.</h2>
+      <div class="servicos-grid">
+        <div class="card-svc"><span class="svc-num">01</span><p class="svc-title">Consulta Ginecológica</p><p class="svc-body">Avaliação completa com exame físico, orientação e acompanhamento contínuo.</p></div>
+        <div class="card-svc"><span class="svc-num">02</span><p class="svc-title">Pré-natal</p><p class="svc-body">Do planejamento ao parto — com atenção especializada em cada semana da gestação.</p></div>
+        <div class="card-svc"><span class="svc-num">03</span><p class="svc-title">DIU e Implanon</p><p class="svc-body">Inserção e retirada de métodos contraceptivos de longa duração com segurança e conforto.</p></div>
+        <div class="card-svc"><span class="svc-num">04</span><p class="svc-title">Laser Vaginal</p><p class="svc-body">Tratamento não cirúrgico para saúde vaginal e qualidade de vida.</p></div>
+        <div class="card-svc"><span class="svc-num">05</span><p class="svc-title">Teleconsulta</p><p class="svc-body">Atendimento por vídeo com a mesma qualidade da consulta presencial, onde você estiver.</p></div>
+        <div class="card-svc"><span class="svc-num">06</span><p class="svc-title">Retorno</p><p class="svc-body">Acompanhamento gratuito em até 40 dias para a mesma queixa.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos">
+  <div class="section">
+    <span class="sec-tag">O que dizem nossas pacientes</span>
+    <h2 class="sec-h">Palavras que <em>importam.</em></h2>
+    <div class="dep-grid">
+      <div class="card-dep">
+        <div class="dep-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+        <p class="dep-quote">"Irretocável. Profissional maravilhosa e um ser humano incrível que ama o que faz. Tanto as consultas quanto o parto, faria tudo de novo com ela, sem dúvida alguma."</p>
+        <p class="dep-author">— Paciente · Google Reviews</p>
+      </div>
+      <div class="card-dep">
+        <div class="dep-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+        <p class="dep-quote">"Melhor obstetra e ginecologista da vida. Muito atenciosa, responsável, passa segurança. Fez minha gestação, meu parto e meu pós-parto serem incríveis."</p>
+        <p class="dep-author">— Paciente · Google Reviews</p>
+      </div>
+      <div class="card-dep">
+        <div class="dep-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+        <p class="dep-quote">"Uma médica humana, que respeita nossas vontades, empática e que tira todas as dúvidas com muita paciência. Fui muito acolhida durante todo o processo."</p>
+        <p class="dep-author">— Paciente · Google Reviews</p>
+      </div>
+    </div>
+    <div class="dep-cta">
+      <a href="https://www.google.com/search?q=Dra.+Ana+Colacique" class="btn-outline" target="_blank">Ver todas as avaliações no Google</a>
+    </div>
+  </div>
+</section>
+
+<!-- CLÍNICA -->
+<section id="clinica">
+  <div class="section">
+    <span class="sec-tag">Clínica</span>
+    <h2 class="sec-h">Um espaço pensado<br>para o seu <em>bem-estar.</em></h2>
+    <div class="clinica-grid">
+      <div class="clinica-img" id="clinica-foto">
+        <div class="hero-img-placeholder">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#b2aeaa" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Foto da<br>Clínica</span>
+        </div>
+      </div>
+      <div class="clinica-info">
+        <p class="clinica-nome">Clínica Ana Colacique</p>
+        <div class="clinica-detalhe">
+          <span class="clinica-detalhe-label">Endereço</span>
+          <span class="clinica-detalhe-val">Av. Queimada, 269, sala 17</span>
+          <span class="clinica-detalhe-sub">Aldeia da Serra · Barueri, SP</span>
+        </div>
+        <div class="clinica-sep"></div>
+        <div class="clinica-detalhe">
+          <span class="clinica-detalhe-label">Horários de atendimento</span>
+          <span class="clinica-detalhe-val">Segunda: 17h–19h</span>
+          <span class="clinica-detalhe-val">Quarta: 14h–18h</span>
+          <span class="clinica-detalhe-val">Quinta: 8h–13h e 14h–18h</span>
+          <span class="clinica-detalhe-val">Sexta: 14h–17h</span>
+        </div>
+        <div class="clinica-sep"></div>
+        <div class="clinica-detalhe">
+          <span class="clinica-detalhe-label">Atendimento</span>
+          <span class="clinica-detalhe-val">Exclusivamente particular</span>
+        </div>
+        <div class="clinica-ctas">
+          <a href="https://wa.me/5511988888230" class="btn-stone" target="_blank">Marcar consulta</a>
+          <a href="https://www.google.com/maps/place/Dra.+Ana+Colacique" class="btn-dark" target="_blank">Ver no mapa</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section id="instagram">
+  <div class="section-full instagram-section">
+    <div style="max-width:1200px;margin:0 auto">
+      <span class="sec-tag">@anacolacique</span>
+      <h2 class="sec-h">Acompanhe no <em>Instagram.</em></h2>
+      <div class="insta-grid">
+        <div class="insta-placeholder"><span>post</span></div>
+        <div class="insta-placeholder"><span>post</span></div>
+        <div class="insta-placeholder"><span>post</span></div>
+        <div class="insta-placeholder"><span>post</span></div>
+        <div class="insta-placeholder"><span>post</span></div>
+        <div class="insta-placeholder"><span>post</span></div>
+      </div>
+      <div class="insta-cta">
+        <a href="https://www.instagram.com/anacolacique/" class="btn-outline" target="_blank">Seguir no Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTAL DA PACIENTE -->
+<section id="portal">
+  <div class="portal-section">
+    <div class="portal-inner">
+      <div class="portal-left">
+        <span class="portal-tag">Área exclusiva</span>
+        <h2 class="portal-h">Suas consultas e documentos,<br><em>sempre com você.</em></h2>
+        <p class="portal-p">Acesse seu histórico de consultas, receitas digitais e pedidos de exame. Agende diretamente pela plataforma. Tudo em um lugar só.</p>
+        <div class="portal-ctas">
+          <a href="/portal" class="btn-portal-p">Entrar na área da paciente</a>
+          <a href="/portal/cadastro" class="btn-portal-s">Criar conta</a>
+        </div>
+      </div>
+      <div class="portal-right">
+        <div class="portal-feature">
+          <div class="pf-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <p class="pf-title">Consultas</p>
+          <p class="pf-body">Histórico completo de atendimentos e próximos agendamentos.</p>
+        </div>
+        <div class="portal-feature">
+          <div class="pf-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <p class="pf-title">Receitas</p>
+          <p class="pf-body">Prescrições digitais assinadas com ICP-Brasil, sempre disponíveis.</p>
+        </div>
+        <div class="portal-feature">
+          <div class="pf-icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <p class="pf-title">Exames</p>
+          <p class="pf-body">Pedidos de exame e resultados organizados em um só lugar.</p>
+        </div>
+        <div class="portal-feature">
+          <div class="pf-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <p class="pf-title">Agendamento</p>
+          <p class="pf-body">Marque sua próxima consulta diretamente pela plataforma.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POLÍTICAS -->
+<section id="politicas">
+  <div class="politicas-section">
+    <span class="sec-tag">Políticas da Clínica</span>
+    <h2 class="sec-h">Transparência em<br>cada <em>detalhe.</em></h2>
+    <div class="pol-grid">
+      <nav class="pol-nav">
+        <ul class="pol-nav-list">
+          <li class="pol-nav-item"><a href="#pol-agendamento" class="active">Agendamento</a></li>
+          <li class="pol-nav-item"><a href="#pol-cancelamento">Cancelamento</a></li>
+          <li class="pol-nav-item"><a href="#pol-atendimento">Atendimento</a></li>
+          <li class="pol-nav-item"><a href="#pol-servicos">Serviços</a></li>
+          <li class="pol-nav-item"><a href="#pol-privacidade">Privacidade</a></li>
+        </ul>
+      </nav>
+      <div class="pol-content">
+
+        <div class="pol-card open" id="pol-agendamento">
+          <div class="pol-header" onclick="togglePol(this)">
+            <div class="pol-header-left">
+              <div class="pol-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+              <div><p class="pol-title">Agendamento</p><p class="pol-subtitle">Dias, horários e prazos</p></div>
+            </div>
+            <svg class="pol-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="pol-body">
+            <table class="sch-table">
+              <thead><tr><th>Dia</th><th>Horário</th></tr></thead>
+              <tbody>
+                <tr><td class="day">Segunda-feira</td><td>17h às 19h</td></tr>
+                <tr><td class="day">Quarta-feira</td><td>14h às 18h</td></tr>
+                <tr><td class="day">Quinta-feira</td><td>08h às 13h e 14h às 18h</td></tr>
+                <tr><td class="day">Sexta-feira</td><td>14h às 17h</td></tr>
+                <tr><td class="day no">Terça, sábado e domingo</td><td class="no">Sem atendimento</td></tr>
+              </tbody>
+            </table>
+            <p>Todo agendamento requer no mínimo <strong>12 horas de antecedência</strong>. Pedidos fora desse prazo podem ser avaliados como encaixe — entre em contato pelo WhatsApp.</p>
+            <p>O retorno é gratuito em até <strong>40 dias</strong> da consulta original, para a mesma queixa.</p>
+          </div>
+        </div>
+
+        <div class="pol-card" id="pol-cancelamento">
+          <div class="pol-header" onclick="togglePol(this)">
+            <div class="pol-header-left">
+              <div class="pol-icon"><svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+              <div><p class="pol-title">Cancelamento e remarcação</p><p class="pol-subtitle">Prazos e exceções</p></div>
+            </div>
+            <svg class="pol-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="pol-body">
+            <div class="pol-levels">
+              <div class="pol-level lv-green"><div class="lv-dot"></div><div><p class="lv-label">Aviso com mais de 24 horas</p><p class="lv-text">Sem nenhuma restrição. Remarca livremente pelo WhatsApp.</p></div></div>
+              <div class="pol-level lv-amber"><div class="lv-dot"></div><div><p class="lv-label">Aviso entre 12h e 24h</p><p class="lv-text">Aceito sem penalidade na primeira ocorrência no ano.</p></div></div>
+              <div class="pol-level lv-red"><div class="lv-dot"></div><div><p class="lv-label">Menos de 12h ou não comparecimento</p><p class="lv-text">Registrado. Após 2 ocorrências, próximos agendamentos exigem confirmação prévia.</p></div></div>
+            </div>
+            <div class="pol-note">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="flex-shrink:0;margin-top:2px"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              A clínica não cobra taxas de cancelamento. Imprevistos acontecem — basta avisar o quanto antes.
+            </div>
+          </div>
+        </div>
+
+        <div class="pol-card" id="pol-atendimento">
+          <div class="pol-header" onclick="togglePol(this)">
+            <div class="pol-header-left">
+              <div class="pol-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+              <div><p class="pol-title">Atendimento e comunicação</p><p class="pol-subtitle">WhatsApp 24h</p></div>
+            </div>
+            <svg class="pol-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="pol-body">
+            <p>Todo o atendimento — agendamentos, dúvidas, cancelamentos, envio de receitas — é realizado pelo <strong>WhatsApp oficial da clínica</strong>, disponível 24 horas por dia.</p>
+            <ul>
+              <li>Agendar, cancelar e remarcar consultas</li>
+              <li>Informar preços, procedimentos e endereço</li>
+              <li>Enviar receitas e pedidos de exame assinados digitalmente</li>
+              <li>Criar e enviar link para teleconsulta</li>
+            </ul>
+            <p>Em situações de emergência, dirija-se imediatamente à UPA ou pronto-socorro mais próximo.</p>
+          </div>
+        </div>
+
+        <div class="pol-card" id="pol-servicos">
+          <div class="pol-header" onclick="togglePol(this)">
+            <div class="pol-header-left">
+              <div class="pol-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+              <div><p class="pol-title">Serviços e procedimentos</p><p class="pol-subtitle">O que realizamos</p></div>
+            </div>
+            <svg class="pol-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="pol-body">
+            <ul>
+              <li>Consulta ginecológica · Pré-natal · Retorno gratuito (40 dias)</li>
+              <li>DIU (inserção e retirada) · Implanon · Laser vaginal</li>
+              <li>Teleconsulta · Prescrições digitais com assinatura ICP-Brasil</li>
+            </ul>
+            <p>Colposcopia e ultrassonografia não são realizadas no consultório — a Dra. Ana fornece encaminhamento para serviços de referência.</p>
+          </div>
+        </div>
+
+        <div class="pol-card" id="pol-privacidade">
+          <div class="pol-header" onclick="togglePol(this)">
+            <div class="pol-header-left">
+              <div class="pol-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+              <div><p class="pol-title">Privacidade e LGPD</p><p class="pol-subtitle">Seus dados protegidos</p></div>
+            </div>
+            <svg class="pol-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="pol-body">
+            <p>Todos os seus dados pessoais e de saúde são tratados em conformidade com a <strong>LGPD (Lei 13.709/2018)</strong>.</p>
+            <ul>
+              <li>Seus dados são usados exclusivamente para fins de atendimento clínico</li>
+              <li>Nenhuma informação é compartilhada sem seu consentimento explícito</li>
+              <li>Você pode solicitar acesso, correção ou exclusão dos seus dados a qualquer momento</li>
+              <li>Prontuário disponibilizado mediante solicitação em até 5 dias úteis</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div style="display:grid;grid-template-columns:repeat(3,6px);gap:4px;margin-bottom:14px">
+          <div style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.6)"></div>
+          <div style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.6)"></div>
+          <div style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.25)"></div>
+          <div style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.6)"></div>
+          <div style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.25)"></div>
+          <div style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.1)"></div>
+          <div style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.25)"></div>
+          <div style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.1)"></div>
+          <div style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.1)"></div>
+        </div>
+        <span class="footer-logo-name">Dra. Ana Colacique</span>
+        <span class="footer-crm">CRM-SP 135.937 · RQE 37.384 · Ginecologia e Obstetrícia</span>
+        <p class="footer-addr">Av. Queimada, 269, sala 17<br>Aldeia da Serra · Barueri, SP</p>
+      </div>
+      <div>
+        <span class="footer-col-title">Navegação</span>
+        <ul class="footer-links">
+          <li><a href="#sobre">Sobre a Dra. Ana</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#clinica">Clínica</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#politicas">Políticas</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="footer-col-title">Contato</span>
+        <ul class="footer-links">
+          <li><a href="https://wa.me/5511988888230" target="_blank">WhatsApp</a></li>
+          <li><a href="https://www.instagram.com/anacolacique/" target="_blank">@anacolacique</a></li>
+          <li><a href="/portal">Área da Paciente</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="footer-col-title">Legal</span>
+        <ul class="footer-links">
+          <li><a href="#politicas">Políticas da Clínica</a></li>
+          <li><a href="#pol-privacidade">Privacidade · LGPD</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Clínica Ana Colacique · CNPJ 14.598.066/0001-30</span>
+      <a href="https://impossiblemark.com" class="footer-dev" target="_blank">Desenvolvido por Impossible Mark</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function togglePol(header) {
+  const card = header.parentElement;
+  card.classList.toggle('open');
+}
+
+// Smooth active state no nav de políticas
+const polLinks = document.querySelectorAll('.pol-nav-item a');
+const polSections = document.querySelectorAll('.pol-card');
+window.addEventListener('scroll', () => {
+  let current = '';
+  polSections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  polLinks.forEach(l => {
+    l.classList.remove('active');
+    if (l.getAttribute('href') === '#' + current) l.classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>
